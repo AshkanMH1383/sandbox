@@ -125,3 +125,104 @@ const CreateUser = (email: string): Users  => ({
     // name: null,
     age: 12,
 })
+
+
+
+// any
+
+function log(something: any) {
+    console.log(something)
+}
+
+const canvas = document.getElementById('tst') as HTMLCanvasElement; 
+
+
+// extends
+
+interface One {
+    foo: string;
+    bar: string;
+}
+interface Two {
+    bar: string;
+}
+
+interface Three extends One , Two {
+    dd: string;
+}
+
+const makeuser = (user: Three) => ({})
+
+
+// interface vs type
+
+// interface for relation to database and class
+interface UserInterface {
+    readonly id: number; // readonly
+    email: string;
+    name: string;
+    age: number;
+}
+
+// type used in props and functions
+// type not extend
+type props ={
+    one: string;
+    two: string;
+}
+
+function propss(params:props) {
+ console.log(params)   
+}
+
+
+// never
+
+const test = (test: never): never =>{ // هرگز هیچ خروجی ندارد
+    console.log(test); // error
+}
+
+
+
+// First & Second    and
+// First | Second    or
+// as string
+
+/**
+    {
+        'name': 'ashkan'
+    }
+ */
+
+type Dictionory = {
+    [key: string]: string;
+}
+
+type TwoDictionory = Record<string, string>; // beter
+
+
+
+// generic type
+
+interface Box<T> {
+    contents: T;
+}
+
+const boxOfStrings: Box<string[]> = {
+    contents: ['ashkan' , 'reza']
+}
+
+const boxOfString: Box<string> = {
+    contents: 'mmad'
+}
+
+const boxOfNumbers: Box<number[]> = {
+    contents: [5, 6, 7]
+}
+
+
+
+
+
+const idendity = <T>(x: T): T =>x; // generic return
+
